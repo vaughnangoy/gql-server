@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:12-alpine
+    volumes: 
+      - ./db/postgres:/var/lib/postgresql/data
+      - ./db/postgres/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: root_user
+      POSTGRES_DB: playground_db
+      PGDATA: /var/lib/postgresql/data/pgdata
+    
