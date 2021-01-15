@@ -6,9 +6,11 @@ services:
     volumes: 
       - ./db/postgres:/var/lib/postgresql/data
       - ./db/postgres/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    ports:
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: root_user
       POSTGRES_DB: playground_db
       PGDATA: /var/lib/postgresql/data/pgdata
-    
+  
