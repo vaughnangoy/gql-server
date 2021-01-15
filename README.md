@@ -20,3 +20,7 @@ Currently GQL is not setup yet. This current build includes the following:
 2. then run `yarn start`
 
 You should then see a hello world message in json output.
+
+## WIP ##
+Currently setting up sample postgres database to use for GQL data source.
+to test connnection and return some sample user data run `node -e 'require("./server/datasource/console")("./server/datasource/postgres/postgres.handler")'` from within the project root onn the command line.

@@ -1,10 +1,11 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE IF NOT EXISTS users (
   user_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
   email VARCHAR,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE user_profiles;
 CREATE TABLE IF NOT EXISTS user_profiles (
     profile_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     user_id uuid DEFAULT NULL,
@@ -12,7 +13,6 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     last_name VARCHAR,
     contact_no VARCHAR(20)
 );
-
 
 INSERT INTO
   users (email)
@@ -41,7 +41,7 @@ VALUES
   ('Mollie', 'Chaucer', '+595 317 651 3241', uuid_nil()),
   ('Emilio', 'Mulleary', '+30 398 507 5176', uuid_nil()),
   ('Carr', 'Kwiek', '+86 243 528 3344', uuid_nil());
-  
+
 
 DROP FUNCTION IF EXISTS map_users;
 CREATE FUNCTION map_users() RETURNS void AS $$
